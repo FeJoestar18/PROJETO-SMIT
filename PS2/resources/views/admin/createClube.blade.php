@@ -6,7 +6,7 @@
 <br>
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Criar um Clube</h1>
-    <form action="/admin" method="POST">
+    <form action="/admin/clubs/store" method="POST">
       @csrf
       <div class="form-group">
         <label for="name">Nome do Clube:</label>

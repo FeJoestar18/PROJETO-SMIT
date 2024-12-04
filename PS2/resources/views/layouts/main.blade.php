@@ -29,7 +29,7 @@
                   <a href="/MinhasAssinaturas" class="nav-link">Minhas Assinaturas</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/clubs/buy_subscription" class="nav-link">Clube de Assinaturas</a>
+                  <a href="/clubs/store" class="nav-link">Clube de Assinaturas</a>
                 </li>
                 <li class="nav-item">
                   <a href="/" class="nav-link">Entrar</a>

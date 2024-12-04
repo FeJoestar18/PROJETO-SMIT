@@ -7,9 +7,19 @@
 <br>
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Criar uma Assinatura</h1>
-    <form action="/admin/subscriptions" method="POST">
+    <form action="/admin/clubs/subscriptions" method="POST">
       @csrf
       <div class="form-group">
+        <label for="club_id">Club:</label>
+        <select class="form-control" id="club_id" name="club_id">
+            <option value="">Select a Club</option>
+            @foreach($club as $c)
+                <option value="{{ $c->id }}">{{ $c->name }}</option>
+            @endforeach
+        </select>
+    </div>
+        </select>
+      </div>
         <label for="name">Nome da Assinatura:</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Nome da Assinatura">
       </div>
@@ -23,6 +33,7 @@
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="active" name="active">
+        <input type="hidden" name="active" value="1"> 
         <label class="form-check-label" for="active">Ativa</label>
     </div>
     
