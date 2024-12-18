@@ -75,7 +75,7 @@ class SubscripitionControlller extends Controller
         $subscription = ClubSubscription::findOrFail($id);
         $subscription->delete();
 
-        return view('admin.SeeSubscription')->with('success', 'Assinatura deletada com sucesso!');
+        return redirect('/admin/seesubscriptions')->with('success', 'Assinatura deletada com sucesso!');
     }
 }
 

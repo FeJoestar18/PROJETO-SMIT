@@ -27,11 +27,13 @@
               </a>
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a href="/admin/createClube" class="nav-link">Criar Clubes</a>
-                </li>
-                <li class="nav-item">
                   <a href="" class="nav-link">Usuários</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a href="/admin/createClube" class="nav-link">Criar Clubes</a>
+                </li>
+                
                 <li class="nav-item">
                   <a href="/admin/CreateSubscription" class="nav-link">Criar Assinaturas</a>
                 </li>
