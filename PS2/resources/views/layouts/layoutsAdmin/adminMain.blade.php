@@ -39,7 +39,7 @@
                   <a href="/admin/seeclubs" class="nav-link">Ver Clubes</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/" class="nav-link">Ver Assinaturas</a>
+                  <a href="/admin/seesubscriptions" class="nav-link">Ver Assinaturas</a>
                 </li>
                 <li class="nav-item">
                   <a href="/" class="nav-link">Sair</a>

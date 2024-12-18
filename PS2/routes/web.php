@@ -40,6 +40,13 @@ use App\Http\Controllers\SubscripitionControlller;
         //ROTAS DE DELETAR CLUBS
         Route::delete('/deleteClub/{club}', [ClubController::class, 'destroy'])->name('destroy');
 
+
+        //ROTA VISUALIZAR ASSINATURAS
+        Route::get('/seesubscriptions', [SubscripitionControlller::class, 'seeSubscriptions']);
+        Route::get('/subscriptions/{id}/edit', [SubscripitionControlller::class, 'editSubscription'])->name('subscriptions.edit');
+        Route::put('/subscriptions/{id}', [SubscripitionControlller::class, 'updateSubscription'])->name('subscriptions.update');
+        Route::delete('/subscriptions/{id}', [SubscripitionControlller::class, 'destroySubscription'])->name('subscriptions.destroy');
+
    });
 
    
