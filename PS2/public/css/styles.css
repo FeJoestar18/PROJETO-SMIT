@@ -25,6 +25,7 @@ header {
 .btn-primary {
   background-color: #F2A340;
   border: 2px solid #C28008;
+  margin-bottom: 15px;
 }
 
 .btn-primary:hover {

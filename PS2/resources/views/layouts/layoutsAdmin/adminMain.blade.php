@@ -30,10 +30,13 @@
                   <a href="/admin/createClube" class="nav-link">Criar Clubes</a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">Usuarios</a>
+                  <a href="" class="nav-link">Usuários</a>
                 </li>
                 <li class="nav-item">
                   <a href="/admin/CreateSubscription" class="nav-link">Criar Assinaturas</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/seeclubs" class="nav-link">Ver Clubes</a>
                 </li>
                 <li class="nav-item">
                   <a href="/" class="nav-link">Sair</a>

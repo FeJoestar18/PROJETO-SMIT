@@ -23,3 +23,12 @@ Route::post('/admin/clubs/Store', [ClubController::class, 'storeClub']);
 //CRIAR ASSINATURAS
 Route::get('/admin/CreateSubscription', [SubscripitionControlller::class, 'CreateSubscription']);
 Route::post('/admin/clubs/subscriptions', [SubscripitionControlller::class, 'storeSubscription']);
+
+//VISUALIZAR CLUBES
+Route::prefix('admin')->group(function () {
+    Route::post('/clubs', [ClubController::class, 'storeClub']);
+    Route::get('/seeclubs', [ClubController::class, 'seeClubs']);
+    Route::post('/admin/editclubs', [ClubController::class, 'editClubs']);
+    Route::delete('/{id}', [ClubController::class, 'destroy'])->name('destroy');
+});
+
