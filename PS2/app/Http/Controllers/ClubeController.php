@@ -16,12 +16,16 @@ class ClubeController extends Controller
   
    
     //CLIENT FUNCTIONS
+
+
+    //HOME CLIENTE
     public function index()
     {
         $Clubs = Club::all();
         return view('home', ['Club' => $Clubs]);
     }
 
+    //COMPRAR ASSINATURA
     public function buySubscription()
 {
     $Club = Club::all();
@@ -29,6 +33,8 @@ class ClubeController extends Controller
 
     
 }
+//MINHAS ASSINATURAS
+
 public function MySubscriptions(){
     return view('MinhasAssinaturas');
 }

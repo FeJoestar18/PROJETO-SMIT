@@ -5,21 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Club;
 
+//CONTROLLER DE CLUBES
+
 class ClubController extends Controller
 {
-    // Método para exibir a página de criação de clube
+    
+
+    //CRIAR CLUBS
     public function createClube()
     {
         return view('admin.createClube');
     }
 
-    // Método para exibir a página de visualização dos clubes
+   //VISUALIZAR CLUBS
     public function seeClubs()
     {
         $clubs = Club::all(); 
-        return view('admin.editAndDestroy', ['clubs' => $clubs]);
+        return view('admin.SeeClubs', ['clubs' => $clubs]);
     }
 
+    //DELETAR CLUB
     public function destroy(Club $club)
 {
    
@@ -28,16 +33,36 @@ class ClubController extends Controller
     
     
 }
+    
+//EDITAR CLUB
+public function editClubs($id)
+{
+    $club = Club::findOrFail($id); 
+    return view('admin.editClubs', compact('club')); e
+}
+
+//ATUALIZAR CLUB
+public function updateClubs(Request $request, $id)
+{
+    
+    $request->validate([
+        'name' => 'required|max:255',
+        'description' => 'required|max:500',
+    ]);
 
     
+    $club = Club::findOrFail($id);
+    $club->name = $request->name;
+    $club->description = $request->description;
+    $club->num_subscriptions = $request->num_subscriptions;
+    $club->save(); 
 
-    // Método para exibir a página de edição de clubes
-    public function editClubs()
-    {
-        return view('admin.editClubs');
-    }
+   
+    return redirect()->route('seeclubs')->with('success', 'Clube atualizado com sucesso!');
+}
 
-    // Método para salvar um novo clube no banco de dados
+
+    //CRIAR CLUB
     public function storeClub(Request $request)
     {
         $club = new Club();

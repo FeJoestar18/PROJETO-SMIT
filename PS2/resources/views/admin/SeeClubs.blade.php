@@ -38,7 +38,7 @@
                     <a href="produtos" class="btn btn-primary">Visite o Clube</a>
                     <div class="buttom">
                         <!-- Botão de Editar -->
-                        <a href="{{ route('seeclubs', $club->id) }}" class="btn btn-primary">Editar</a>
+                        <a href="{{ route('editClubs', $club->id) }}" class="btn btn-primary">Editar</a>
                         
                         <!-- Formulário de Deletar -->
                         <form action="{{ route('destroy', $club->id) }}" method="POST">
