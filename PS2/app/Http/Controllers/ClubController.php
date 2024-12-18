@@ -16,9 +16,20 @@ class ClubController extends Controller
     // Método para exibir a página de visualização dos clubes
     public function seeClubs()
     {
-        $clubs = Club::all(); // Buscar todos os clubes
+        $clubs = Club::all(); 
         return view('admin.editAndDestroy', ['clubs' => $clubs]);
     }
+
+    public function destroy(Club $club)
+{
+   
+        $club->delete();
+        return redirect()->route('seeclubs');
+    
+    
+}
+
+    
 
     // Método para exibir a página de edição de clubes
     public function editClubs()
@@ -39,8 +50,5 @@ class ClubController extends Controller
     }
 
     
-    public function destroy($id)
-    {
-        dd($id);
-    }    
+     
 }
