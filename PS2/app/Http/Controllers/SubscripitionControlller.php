@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\ClubSubscription;
 use App\Models\Club;
 
+
+// CONTROLLER DE ASSINATURAS
+
 class SubscripitionControlller extends Controller
 {
+
+    // CRIAR ASSINATURA
     public function createSubscription()
 {
     $club = Club::all();
     return view('admin.createSubscription', compact('club'));
 }
+
+// SALVAR ASSINATURA
     public function storeSubscription(Request $request)
 {
 
@@ -29,22 +36,24 @@ class SubscripitionControlller extends Controller
   
     return redirect('/admin/adminHome')->with('success', 'Assinatura criada com sucesso!');
 }
-    // Exibe a view com todas as assinaturas
-    public function seeSubscriptions()
+
+// VER ASSINATURAS
+       public function seeSubscriptions()
     {
-        $subscriptions = ClubSubscription::with('club')->get(); // Pega todas as assinaturas com o clube associado
+        $subscriptions = ClubSubscription::with('club')->get();
         return view('admin.SeeSubscription', compact('subscriptions'));
     }
 
-    // Exibe o formulário de edição para uma assinatura específica
-    public function editSubscription($id)
+    // EDITAR ASSINATURA
+        public function editSubscription($id)
     {
-        $subscription = ClubSubscription::findOrFail($id); // Encontra a assinatura ou retorna um 404 se não existir
-        $clubs = Club::all(); // Pega todos os clubes para o select de clubes
+        $subscription = ClubSubscription::findOrFail($id); 
+        $clubs = Club::all(); 
         return view('admin.editSubscription', compact('subscription', 'clubs'));
     }
 
-    // Atualiza a assinatura no banco de dados
+    // ATUALIZAR ASSINATURA
+    
     public function updateSubscription(Request $request, $id)
     {
         $subscription = ClubSubscription::findOrFail($id);
@@ -57,10 +66,10 @@ class SubscripitionControlller extends Controller
         $subscription->club_id = $request->club_id;
         $subscription->save();
 
-        return redirect('/seesubscriptions')->with('success', 'Assinatura atualizada com sucesso!');
+        return redirect('/admin/seesubscriptions')->with('success', 'Assinatura atualizada com sucesso!');
     }
 
-    // Deleta uma assinatura
+    // DELETAR ASSINATURA
     public function destroySubscription($id)
     {
         $subscription = ClubSubscription::findOrFail($id);

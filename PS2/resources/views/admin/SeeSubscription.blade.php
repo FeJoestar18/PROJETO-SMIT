@@ -5,11 +5,14 @@
 @section('content')
     <h1>Gerenciar Assinaturas</h1>
 
-    @if(session('success'))
+    
+    {{-- PARE REALIZAR TESTE SE ESTA DELETANDO, EDITANDO OU NÃO --}}
+    
+    {{-- @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
-    @endif
+    @endif --}}
 
     <table class="table">
         <thead>
@@ -24,19 +27,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($Subscriptions as $subscription)
+            @foreach($subscriptions as $subscription)
                 <tr>
                     <td>{{ $subscription->id }}</td>
                     <td>{{ $subscription->name }}</td>
                     <td>{{ $subscription->description }}</td>
                     <td>{{ $subscription->price }}</td>
-                    <td>{{ $subscription->club->name }}</td>
+                    <td>{{ $subscription->club ? $subscription->club->name : 'Sem clube associado' }}</td>
                     <td>{{ $subscription->active ? 'Sim' : 'Não' }}</td>
                     <td>
-                        <!-- Botão de Editar -->
+                        
                         <a href="{{ route('subscriptions.edit', $subscription->id) }}" class="btn btn-warning">Editar</a>
-
-                        <!-- Formulário de Deletar -->
+    
+                        
                         <form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
@@ -47,4 +50,5 @@
             @endforeach
         </tbody>
     </table>
+    
 @endsection
