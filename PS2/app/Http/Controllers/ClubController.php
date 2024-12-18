@@ -38,7 +38,7 @@ class ClubController extends Controller
 public function editClubs($id)
 {
     $club = Club::findOrFail($id); 
-    return view('admin.editClubs', compact('club')); e
+    return view('admin.editClubs', compact('club')); 
 }
 
 //ATUALIZAR CLUB
