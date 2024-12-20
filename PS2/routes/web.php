@@ -20,10 +20,6 @@ use App\Http\Controllers\SubscripitionControlller;
     Route::get('/admin/CreateSubscription', [SubscripitionControlller::class, 'CreateSubscription']);
     Route::post('/admin/clubs/subscriptions', [SubscripitionControlller::class, 'storeSubscription']);
 
-
-
-
-
 //HOME ADMIN
     Route::get('/admin/adminHome', [ClubeController::class, 'admin']);
 
@@ -49,6 +45,12 @@ use App\Http\Controllers\SubscripitionControlller;
 
    });
 
-   
-
-
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

@@ -25,18 +25,43 @@
 
               </a>
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a href="/MinhasAssinaturas" class="nav-link">Minhas Assinaturas</a>
-                </li>
+                @if (url()->current() !== url('/'))
+    <li class="nav-item">
+        <a href="{{ url()->previous() }}" class="nav-link">Voltar</a>
+    </li>
+@endif
+
                 <li class="nav-item">
                   <a href="/clubs/store" class="nav-link">Clube de Assinaturas</a>
                 </li>
+                @auth
                 <li class="nav-item">
-                  <a href="/" class="nav-link">Entrar</a>
+                  <a href="/dashboard" class="nav-link">Minhas Assinaturas</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/" class="nav-link">Cadastrar</a>
+                  <a href="/user/profile" class="nav-link">Perfil</a>
                 </li>
+                <li class="nav-item">
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <a href="/logout" 
+                      class="nav-link" 
+                      onclick="event.preventDefault();
+                      this.closest('form').submit();">
+                      Sair
+                    </a>
+                  </form>
+                </li>
+                @endauth
+
+                @guest
+                <li class="nav-item">
+                  <a href="/login" class="nav-link">Entrar</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/register" class="nav-link">Cadastrar</a>
+                </li>
+                @endguest
               </ul>
             </div>
           </nav>
